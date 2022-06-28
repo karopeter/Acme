@@ -1,0 +1,9 @@
+.panel-heading {
+  background-color: rgba(105, 105, 252, 0.877);
+  margin-top: 70px;
+  margin-bottom: 10px;
+  padding: 10px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+}
