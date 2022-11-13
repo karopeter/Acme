@@ -1,0 +1,52 @@
+<div class="container">
+ <div class="heading-engine">
+   <h1 class="controller-name">
+    {{rocketName}}
+   </h1>
+ </div>
+ <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <p class="crown-stars">Filter Different Machines:{{listFilter}}</p>
+       </div>
+       <div class="col-md-4" style="margin-top: 30px;">
+        <input type="text" class="form-control" [(ngModel)]='listFilter' />
+       </div>
+    </div>
+    <div class="row">
+     <div class="col-md-6">
+       <h3>Assignment Information: {{listFilter}}</h3>
+     </div>
+    </div>
+    <div class="table-responsive">
+     <table class="table borderless" *ngIf="spaces && spaces.length">
+       <thead>
+         <tr>
+          <th>
+            <button class="btn btn-success" (click)="toggleButton()">
+              {{showButton ? 'Hide' : 'Show'}}  Anonymous
+            </button>
+          </th>
+          <th>Launches</th>
+          <th>Code</th>
+          <th>Flights</th>
+          <th>Price</th>
+          <th>Mission Rating</th>
+         </tr>
+       </thead>
+       <tbody>
+        <tr *ngFor="let space of spaces | spaceFilter:listFilter">
+         <td>
+           <img *ngIf="showButton" [src]='space.imageUrl' [title]='space.rocketName' [style.width.px]="imageWidth" [style.margin.px]="imageMargin">
+         </td>
+         <td><a [routerLink]="['/rocket', rocket.rocketId]">{{space.rocketName}}</a></td>
+         <td>{{space.rocketCode | lowercase }}</td>
+         <td>{{space.rocketDate}}</td>
+         <td>{{space.rocketPrice | currency: 'USD':true:'1.2-2'}}</td>
+         <td>{{space.description}}</td>
+        </tr>
+       </tbody>
+     </table>
+    </div>
+ </div>
+</div>

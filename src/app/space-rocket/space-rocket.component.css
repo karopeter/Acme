@@ -1,0 +1,21 @@
+.heading-engine {
+  background-color: rgba(105, 105, 252, 0.877);
+  margin-top: 70px;
+  margin-bottom: 10epx;
+  padding: 10px;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+
+.controller-name {
+  text-align: center;
+  color: #000;
+}
+
+.crown-stars {
+  color: rgb(49, 47, 47);
+  font-size: 15px;
+  margin-top: 30px;
+  text-align: left;
+}

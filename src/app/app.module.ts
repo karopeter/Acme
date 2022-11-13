@@ -9,10 +9,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import {ProductFilterPipe } from './product-list/product-filter-pipe';
+import { SpaceFilterPipe } from './space-rocket/space-filter-pipe';
 import { StarComponent } from './star/star.component';
 import { ProductDetailComponent } from './product-list/product-detail.component';
 import { HeaderComponent } from './header/header.component';
+import { SpaceDetailGuard } from './space-rocket/space-guard.service';
 import { ProductDetailGuard } from './product-list/product-guard.service';
+import { SpaceRocketComponent } from './space-rocket/space-rocket.component';
+import { SpaceDetailsComponent } from './space-rocket/space-details.component';
+import { ViewchildComponent } from './viewchild/viewchild.component';
+import { CounterComponent } from './viewchild/counter.component';
 
 
 @NgModule({
@@ -21,22 +27,22 @@ import { ProductDetailGuard } from './product-list/product-guard.service';
     ProductListComponent,
     ProductFilterPipe,
     StarComponent,
+    SpaceFilterPipe,
     ProductDetailComponent,
-    HeaderComponent
+    HeaderComponent,
+    SpaceRocketComponent,
+    SpaceDetailsComponent,
+    ViewchildComponent,
+    CounterComponent
   ],
   imports: [
-BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: 'products', component: ProductListComponent },
-      { path: 'product/:id', canActivate: [ ProductDetailGuard  ], component: ProductDetailComponent },
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-      { path: '***', redirectTo: 'welcome', pathMatch: 'full' }
-    ])
+    RouterModule.forRoot([])
   ],
-  providers: [ProductDetailGuard],
+  providers: [ProductDetailGuard, SpaceDetailGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
